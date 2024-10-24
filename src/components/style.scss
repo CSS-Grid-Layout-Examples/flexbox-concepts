@@ -1,0 +1,177 @@
+/* app imports */
+@import "../common/css/mixins.scss";
+@import "../common/css/variables.scss";
+@import "./list-item-style.scss";
+
+.flexboxRow,
+.flexboxColumn,
+.chessboardLayout,
+.flexGrowInteractive,
+.flexBoxReverseRow,
+.flexBoxCentralize {
+  .container {
+    padding: 0 8.75% 5%;
+    p {
+      line-height: 1.4rem;
+      font-size: 0.8rem;
+      color: #555;
+      text-decoration: underline;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.flexboxRow {
+  .container {
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      li.big {
+        width: 380px;
+      }
+    }
+  }
+}
+
+.flexboxRow.growBox {
+  .container {
+    ul {
+      justify-content: flex-start;
+      gap: 2%;
+      li:nth-child(1) {
+        flex-grow: 2;
+      }
+      li:nth-child(3) {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.flexboxColumn {
+  .container {
+    .lists {
+      display: flex;
+      justify-content: space-between;
+      ul {
+        position: relative;
+        width: 22%;
+        li {
+          width: auto;
+        }
+      }
+      ul + ul:before {
+        content: "";
+        width: 1px;
+        height: 100%;
+        background: #eee;
+        position: absolute;
+        top: 0;
+        left: -19px;
+      }
+    }
+  }
+}
+
+.chessboardLayout {
+  .container {
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-content: center;
+      gap: 1%;
+      li {
+        width: auto;
+        flex: 0 1 11%;
+        margin-bottom: 1%;
+        .image {
+          img {
+            width: 55%;
+          }
+        }
+        .image:before {
+          padding-top: 100%;
+        }
+        span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+.flexGrowInteractive {
+  .container {
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 10px;
+      li {
+        width: auto;
+        flex: 0 0 160px;
+        @include app-transition(all, 0.5s, ease);
+        p {
+          text-decoration: none;
+          margin-bottom: 15px;
+          color: $black;
+        }
+        .row {
+          margin: 0 auto 15px;
+          width: 90%;
+          max-width: 150px;
+          border-radius: 15px;
+          overflow: hidden;
+          .btn-default {
+            outline: none;
+            border-radius: 0;
+            background: #eee;
+            width: 50%;
+            float: left;
+            padding: 10px 0 13px;
+            background: $black;
+            img {
+              width: 18px;
+            }
+          }
+          .btn-default:active,
+          .btn-default:focus-visible,
+          .btn-default:focus {
+            outline: none;
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.flexBoxReverseRow {
+  .container {
+    ul {
+      display: flex;
+      flex-flow: row-reverse wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+.flexBoxCentralize {
+  .container {
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-content: center;
+      gap: 2%;
+      height: 750px;
+      border-radius: 15px;
+      background: #f5f5f5;
+      li {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+/* app imports */
+@import "../common/css/mixins.scss";
+@import "../common/css/variables.scss";
+
+li {
+  width: 152px;
+  background: $white;
+  margin-bottom: 3.75%;
+  border-radius: 15px;
+  .item {
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    .image {
+      position: relative;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+      }
+    }
+    .image:before {
+      content: "";
+      display: block;
+      padding-top: 152px;
+    }
+    span {
+      display: block;
+      font-size: 0.9rem;
+      padding: 15px 0;
+      border-top: 1px solid #eee;
+      font-weight: 500;
+      letter-spacing: -1px;
+    }
+  }
+}
